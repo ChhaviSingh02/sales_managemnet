@@ -62,9 +62,9 @@ A Python-based application to manage inventory and sales records efficiently. Th
    ```python
    return mysql.connector.connect(
        host="localhost",
-       port=3306,
+       port=3300,
        user="root",          # Replace with your MySQL username
-       password="2549",      # Replace with your MySQL password
+       password="1234",      # Replace with your MySQL password
        database="sales_management"
    )
    ```
