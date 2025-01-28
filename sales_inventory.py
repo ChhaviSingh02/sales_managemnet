@@ -5,28 +5,10 @@ from tabulate import tabulate
 def connect_to_db():
     return mysql.connector.connect(
         host="localhost",
-        port=3306,
-        user="root",
-        password="2549",  # Ensure password is a string
-        database="sales_management"
+        user="root",  # Replace with your MySQL username
+        password="2549",  # Replace with your MySQL password
+        database="project_sales"
     )
-
-# Execute SQL file
-def execute_sql_file(filename):
-    conn = mysql.connector.connect(
-        host="localhost",
-        port=3306,
-        user="root",
-        password="2549"
-    )
-    cursor = conn.cursor()
-    with open(filename, 'r') as file:
-        sql_commands = file.read().split(';')
-        for command in sql_commands:
-            if command.strip():
-                cursor.execute(command)
-    conn.commit()
-    conn.close()
 
 # Add a new product
 def add_product():
@@ -88,7 +70,6 @@ def view_sales():
 
 # Main menu
 def main():
-    execute_sql_file('sales_management.sql')  # Execute the SQL file to set up the database
     while True:
         print("\n--- Sales and Inventory Management System ---")
         print("1. Add Product")
@@ -117,3 +98,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
